@@ -12,8 +12,9 @@ source:
     - update-argminmax.patch
 
 build:
-  # maturin 0.14.x isn't available for python 3.12
-  skip: true  # [py<37 or py>=312 or win]
+  # maturin 0.14.x unavailable for python 3.12
+  # rust nightly unavailable on s390x
+  skip: true  # [py<37 or py>=312 or win or s390x]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   number: 0
 
