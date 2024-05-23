@@ -33,12 +33,18 @@ requirements:
     - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx and x86_64]
 
 test:
+  source_files:
+    - tests
   imports:
     - tsdownsample
   commands:
     - pip check
+    - pytest tests
   requires:
     - pip
+    - pytest
+    - pytest-cov
+    - pytest-benchmark
 
 about:
   home: https://github.com/predict-idlab/tsdownsample
