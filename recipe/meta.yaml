@@ -24,7 +24,7 @@ requirements:
     - patch
   host:
     - python
-    - maturin >=0.14,<0.15
+    - maturin 0.14.17
     - pip
   run:
     - python
