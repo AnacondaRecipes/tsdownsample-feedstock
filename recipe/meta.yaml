@@ -8,6 +8,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tsdownsample-{{ version }}.tar.gz
   sha256: 5268d0ab5e8572138871feff389440a0c59d5e0fe02c0fa1cf975d74ba33b933
+  patches:
+    - update-argminmax.patch
 
 build:
   # maturin 0.14.x isn't available for python 3.12
@@ -18,7 +20,8 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - {{ compiler('rust') }}
+    - rust 1.79.0
+    - patch
   host:
     - python
     - maturin >=0.14,<0.15
