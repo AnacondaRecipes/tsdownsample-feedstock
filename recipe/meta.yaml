@@ -59,3 +59,5 @@ about:
 extra:
   recipe-maintainers:
     - thewchan
+  skip-lints:
+    - missing_wheel
