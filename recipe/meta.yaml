@@ -38,12 +38,10 @@ test:
     - tsdownsample
   commands:
     - pip check
-    - pytest tests
+    - pytest tests --ignore="tests/benchmarks"
   requires:
     - pip
     - pytest
-    - pytest-cov
-    - pytest-benchmark
 
 about:
   home: https://github.com/predict-idlab/tsdownsample
