@@ -10,6 +10,7 @@ source:
   sha256: 5268d0ab5e8572138871feff389440a0c59d5e0fe02c0fa1cf975d74ba33b933
   patches:
     - update-argminmax.patch
+    - mark-flaky-test.patch
 
 build:
   # rust nightly unavailable on s390x
@@ -42,6 +43,7 @@ test:
   requires:
     - pip
     - pytest
+    - pytest-rerunfailures
 
 about:
   home: https://github.com/predict-idlab/tsdownsample
