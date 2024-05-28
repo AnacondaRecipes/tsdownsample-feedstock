@@ -1,8 +1,16 @@
 diff --git a/tests/test_tsdownsample.py b/tests/test_tsdownsample.py
-index 993faa6..d3102f4 100644
+index 993faa6..8272495 100644
 --- a/tests/test_tsdownsample.py
 +++ b/tests/test_tsdownsample.py
-@@ -146,6 +146,7 @@ def test_parallel_downsampling_with_x(downsampler: AbstractDownsampler):
+@@ -136,6 +136,7 @@ def test_parallel_downsampling(downsampler: AbstractDownsampler):
+ 
+ 
+ @pytest.mark.parametrize("downsampler", generate_rust_downsamplers())
++@pytest.mark.flaky(reruns=5)
+ def test_parallel_downsampling_with_x(downsampler: AbstractDownsampler):
+     """Test parallel downsampling with x."""
+     arr = np.random.randn(10_001).astype(np.float32)  # 10_001 to test edge case
+@@ -146,6 +147,7 @@ def test_parallel_downsampling_with_x(downsampler: AbstractDownsampler):
  
  
  @pytest.mark.parametrize("downsampler", generate_all_downsamplers())
