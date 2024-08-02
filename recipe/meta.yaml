@@ -16,7 +16,7 @@ build:
   # rust nightly unavailable on s390x
   skip: true  # [py<37 or win or s390x]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
-  number: 0
+  number: 1
 
 requirements:
   build:
