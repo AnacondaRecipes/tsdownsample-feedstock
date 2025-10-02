@@ -13,20 +13,20 @@ source:
     - mark-flaky-test.patch
 
 build:
-  # rust nightly unavailable on s390x
-  skip: true  # [py<37 or win or s390x]
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
-  number: 0
+  skip: true  # [py<37]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
-    - patch
+    - patch  # [unix]
+    - msys2-patch  # [win]
   host:
-    - python
-    - maturin 1.5.1
     - pip
+    - python
+    - maturin >=1.1,<2.0
   run:
     - python
     - numpy
