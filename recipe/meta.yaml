@@ -21,9 +21,8 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
-    # rust activation for 1.89 still not released:
-    - rust ==1.87
     - {{ compiler('rust') }}
   host:
     - pip
@@ -64,4 +63,3 @@ extra:
     - thewchan
   skip-lints:
     - missing_wheel
-    - should_use_stdlib

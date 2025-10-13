@@ -6,5 +6,3 @@ MACOSX_SDK_VERSION:      # [osx]
   - 11.1                 # [osx]
 CONDA_BUILD_SYSROOT:     # [osx]
   - /Library/Developer/CommandLineTools/SDKs/MacOSX11.1.sdk  # [osx]
-rust_compiler_version:
-  - '1.87.0'
