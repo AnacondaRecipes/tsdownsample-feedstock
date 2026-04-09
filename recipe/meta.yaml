@@ -15,9 +15,11 @@ source:
     - patches/0001-update-argminmax.patch
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  number: 1
   skip: true  # [py<38]
+  script_env:
+    - PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
   build:
