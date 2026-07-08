@@ -1,13 +1,13 @@
 {% set name = "tsdownsample" %}
-{% set version = "0.1.4.1" %}
+{% set version = "0.1.5.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: cc2e2fc0031a5fb75c0f5204b498e86eae0333bcc19da481c0859f1943690f3b
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: e597d6f1891f8163d9425b5f71759bfb17e3545ab72618d7ebaae0356e702829
   patches:
     # 95 | #![cfg_attr(feature = "nightly_simd", feature(avx512_target_feature))]
     # |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -15,7 +15,7 @@ source:
     - patches/0001-update-argminmax.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<38]
   script_env:
     - PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1
@@ -26,6 +26,7 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - {{ compiler('rust') }}
+    - cargo-bundle-licenses
   host:
     - pip
     - python
@@ -49,19 +50,17 @@ test:
 
 about:
   home: https://github.com/predict-idlab/tsdownsample
-  dev_url: https://github.com/predict-idlab/tsdownsample
-  doc_url: https://github.com/predict-idlab/tsdownsample/blob/main/README.md
-  summary: Time series downsampling in Rust
-  description: |
-    High-performance time series downsampling algorithms for visualization
   license: MIT
   license_file:
     - LICENSE
     - downsample_rs/LICENSE
   license_family: MIT
+  summary: Time series downsampling in Rust
+  description: |
+    High-performance time series downsampling algorithms for visualization
+  dev_url: https://github.com/predict-idlab/tsdownsample
+  doc_url: https://github.com/predict-idlab/tsdownsample/blob/main/README.md
 
 extra:
   recipe-maintainers:
     - thewchan
-  skip-lints:
-    - missing_wheel
