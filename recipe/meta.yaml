@@ -2,7 +2,7 @@
 {% set version = "0.1.5.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
@@ -49,19 +49,17 @@ test:
 
 about:
   home: https://github.com/predict-idlab/tsdownsample
-  dev_url: https://github.com/predict-idlab/tsdownsample
-  doc_url: https://github.com/predict-idlab/tsdownsample/blob/main/README.md
-  summary: Time series downsampling in Rust
-  description: |
-    High-performance time series downsampling algorithms for visualization
   license: MIT
   license_file:
     - LICENSE
     - downsample_rs/LICENSE
   license_family: MIT
+  summary: Time series downsampling in Rust
+  description: |
+    High-performance time series downsampling algorithms for visualization
+  dev_url: https://github.com/predict-idlab/tsdownsample
+  doc_url: https://github.com/predict-idlab/tsdownsample/blob/main/README.md
 
 extra:
   recipe-maintainers:
     - thewchan
-  skip-lints:
-    - missing_wheel
